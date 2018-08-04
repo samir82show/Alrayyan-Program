@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Buzz System Competition</title>
+        <h:outputStylesheet library="css" name = "Normalize.css" />
+        <h:outputStylesheet library="css" name = "indexcss.css" />
+
+    </h:head>
+    <h:body>
+        <div id="container" class="table-style1">
+            <div id="question">
+                <h:panelGroup id="question_panel" >
+                    <h:form id="question_form">
+                        <h:outputLabel id="stage" value="المرحله: #{matchController.question.stageId}"/><br />
+                        <h:outputLabel id="points" value="النقاط: #{matchController.question.questionpointId}"/><br />
+                        <h:outputLabel id="question" value="السؤال: #{matchController.question.content}"/><br />
+                        <h:outputLabel id="answer" value="الاجابه: #{matchController.question.directanswer}"/><br />
+                    </h:form>
+                </h:panelGroup>
+            </div>
+            <div id="team1">
+                <h:panelGroup id="panel1">
+                    <h:form>
+                        <h3 style="font-size: 2vw">
+                            #{matchController.competitionMatch.school1Name}<br /><br />
+                        </h3>
+                        <h3 style="font-size: 5vw">
+                            #{matchController.competitionMatch.score1}<br />
+                        </h3>
+                        <h:commandButton class="btn1" action="#{matchController.correctAnswer1()}" value="صح">
+                            <f:ajax execute="@form" 
+                                    render="@form :question_panel :question_form"/>
+                        </h:commandButton>
+                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer1()}" value="خطأ">
+                            <f:ajax execute="@form" 
+                                    render="@form :question_panel :question_form"/>
+                        </h:commandButton>
+                    </h:form>
+                </h:panelGroup>
+            </div>
+
+            <div id="team2">
+                <h:panelGroup id="panel2">
+                    <h:form>
+                        <h3 style="font-size: 2vw">
+                            #{matchController.competitionMatch.school2Name}<br /><br />
+                        </h3>
+                        <h3 style="font-size: 5vw">
+                            #{matchController.competitionMatch.score2}<br />
+                        </h3>
+                        <h:commandButton  class="btn1" action="#{matchController.correctAnswer2()}" value="صح">
+                            <f:ajax execute="@form" 
+                                    render="@form :question_panel :question_form"/>
+                        </h:commandButton>
+                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer2()}" value="خطأ">
+                            <f:ajax execute="@form" 
+                                    render="@form :question_panel :question_form"/>
+                        </h:commandButton>
+                    </h:form>
+                </h:panelGroup>
+            </div>
+            <div id="btn">
+                <h:form>
+                    <h:commandButton class="btn" value="إيقاف المباراة" action="#{matchController.stopMatch()}"/>
+                </h:form>
+                <br />
+                <h:link class="link2" outcome="index" value="رجوع"/>
+                <br /><br /><br />
+            </div>
+        </div>
+    </h:body>
+</html>

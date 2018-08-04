@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Matches List</title>
+        <h:outputStylesheet library="css" name = "Normalize.css" />
+        <h:outputStylesheet library="css" name = "indexcss.css" />
+    </h:head>
+    <h:body>
+        <div class="main-container">
+            <f:view>
+                <h:form >
+                    <h1><h:outputText value="قائمة المباريات"/></h1>
+                    <h:dataTable styleClass="table-style" value="#{matchController.competitionMatches}" var="item" border="3">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Id"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="نتيجة الفريق الأول"/>
+                            </f:facet>
+                            <h:outputText value="#{item.score1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="نتيجة الفريق الثاني"/>
+                            </f:facet>
+                            <h:outputText value="#{item.score2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="الحالة"/>
+                            </f:facet>
+                            <h:outputText value="#{item.status}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="رقم الحلقة"/>
+                            </f:facet>
+                            <h:outputText value="#{item.episodeId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="إسم المدرسة 1"/>
+                            </f:facet>
+                            <h:outputText value="#{item.school1Name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="إسم المدرسة 2"/>
+                            </f:facet>
+                            <h:outputText value="#{item.school2Name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="المرحلة الحالية"/>
+                            </f:facet>
+                            <h:outputText value="#{item.currentStage}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value=""/>
+                            </f:facet>
+                            <h:outputText value=" "/>
+                            <h:commandLink class="mod" action="#{matchController.edit(item)}" value="تعديل"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink class="mod" action="#{matchController.delete(item)}" value="حذف">
+                                <f:ajax execute="@form" render="@form"/>
+                            </h:commandLink>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+                <br />
+                
+                <h:link class="link2" outcome="index" value="إنشاء مباراة جديدة"/>
+            </f:view>
+        </div>
+    </h:body>
+</html>
+
