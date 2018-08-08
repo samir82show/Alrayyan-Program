@@ -30,6 +30,7 @@
                         <h3 style="font-size: 5vw">
                             #{matchController.competitionMatch.score1}
                         </h3>
+<<<<<<< HEAD
                         <h:commandLink action="#{matchController.correctAnswer1()}">
                             <h:graphicImage class="btn3" value="resources/img/tick64.png" />
                             <f:ajax execute="@form" 
@@ -37,6 +38,13 @@
                         </h:commandLink>
                         <h:commandLink action="#{matchController.wrongAnswer1()}">
                             <h:graphicImage class="btn4" value="resources/img/delete64.png" />
+=======
+                        <h:commandButton class="btn1" action="#{matchController.correctAnswer1()}" value="#{bundle.correct_answer}">
+                            <f:ajax execute="@form" 
+                                    render="@form :question_panel :question_form"/>
+                        </h:commandButton>
+                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer1()}" value="#{bundle.wrong_answer}">
+>>>>>>> origin/master
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
                         </h:commandLink>
@@ -53,6 +61,7 @@
                         <h3 style="font-size: 5vw">
                             #{matchController.competitionMatch.score2}
                         </h3>
+<<<<<<< HEAD
                         <h:commandLink  action="#{matchController.correctAnswer2()}">
                             <h:graphicImage class="btn3" value="resources/img/tick64.png" />
                             <f:ajax execute="@form" 
@@ -60,6 +69,17 @@
                         </h:commandLink>
                         <h:commandLink action="#{matchController.wrongAnswer2()}">
                             <h:graphicImage class="btn4" value="resources/img/delete64.png" />
+=======
+<<<<<<< HEAD
+                        <h:commandButton  class="btn1" action="#{matchController.correctAnswer2()}" value="#{bundle.correct_answer}">
+=======
+                        <h:commandButton image="../img/1.png"  class="btn1" action="#{matchController.correctAnswer2()}" value="صح">
+>>>>>>> bbd6235dbf9cffcf9c92577ccac08980980c6277
+                            <f:ajax execute="@form" 
+                                    render="@form :question_panel :question_form"/>
+                        </h:commandButton>
+                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer2()}" value="#{bundle.wrong_answer}">
+>>>>>>> origin/master
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
                         </h:commandLink>

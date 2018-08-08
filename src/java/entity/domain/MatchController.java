@@ -64,11 +64,14 @@ public class MatchController implements Serializable {
                 .findQuestionByEpisodeStageStatus(
                         episodeFacade.find(competitionMatch.getEpisodeId().getId()), stageFacade.find(competitionMatch.getCurrentStage())
                 );
-        question = questions.get(0);
-        competitionMatch.setStatus(1);
-        competitionMatchFacade.create(competitionMatch);
-        createXml();
-        return "stage1?faces-redirect=true";
+        if (!questions.isEmpty()) {
+            question = questions.get(0);
+            competitionMatch.setStatus(1);
+            competitionMatchFacade.create(competitionMatch);
+            createXml();
+            return "stage1?faces-redirect=true";
+        }
+        return "reset_questions?faces-redirect=true";
     }
 
     public String correctAnswer1() {
@@ -120,19 +123,20 @@ public class MatchController implements Serializable {
 
     public void createXml() {
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("c:\\data\\rayantv.xml"), "UTF-8"));
-            bufferedWriter.write("<?xml version=\"1.0\"?>\n");
-            bufferedWriter.write("<root>\n");
-            bufferedWriter.write("<question>" + question.getContent() + "</question>\n");
-            bufferedWriter.write("<points>" + question.getQuestionpointId().getPoints() + "</points>\n");
-            bufferedWriter.write("<option1>" + question.getOption1() + "</option1>\n");
-            bufferedWriter.write("<option2>" + question.getOption1() + "</option2>\n");
-            bufferedWriter.write("<option3>" + question.getOption1() + "</option3>\n");
-            bufferedWriter.write("<directAnswer>" + question.getDirectanswer() + "</directAnswer>\n");
-            bufferedWriter.write("<school1>" + competitionMatch.getSchool1Name() + "</school1\n");
-            bufferedWriter.write("<school2>" + competitionMatch.getSchool2Name() + "</school2\n");
-            bufferedWriter.write("<school1_current_score>" + competitionMatch.getScore1() + "</school1_current_score>\n");
-            bufferedWriter.write("<school2_current_score>" + competitionMatch.getScore2() + "</school2_current_score>\n");
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("Y:\\rayantv.xml"), "UTF-8"));
+            bufferedWriter.write("<?xml version=\"1.0\"?>\r\n");
+            bufferedWriter.write("<root>\r\n");
+            bufferedWriter.write("<question>" + question.getContent() + "</question>\r\n");
+            bufferedWriter.write("<points>" + question.getQuestionpointId().getPoints() + "</points>\r\n");
+            bufferedWriter.write("<stage>" + question.getStageId().getName() + "</stage>\r\n");
+            bufferedWriter.write("<option1>" + question.getOption1() + "</option1>\r\n");
+            bufferedWriter.write("<option2>" + question.getOption1() + "</option2>\r\n");
+            bufferedWriter.write("<option3>" + question.getOption1() + "</option3>\r\n");
+            bufferedWriter.write("<directAnswer>" + question.getDirectanswer() + "</directAnswer>\r\n");
+            bufferedWriter.write("<school1>" + competitionMatch.getSchool1Name() + "</school1>\r\n");
+            bufferedWriter.write("<school2>" + competitionMatch.getSchool2Name() + "</school2>\r\n");
+            bufferedWriter.write("<school1_current_score>" + competitionMatch.getScore1() + "</school1_current_score>\r\n");
+            bufferedWriter.write("<school2_current_score>" + competitionMatch.getScore2() + "</school2_current_score>\r\n");
             bufferedWriter.write("</root>");
             bufferedWriter.close();
         } catch (IOException ex) {
