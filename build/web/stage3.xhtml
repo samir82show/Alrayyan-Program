@@ -11,7 +11,7 @@
     </h:head>
     <h:body>
 
-        <div id="container" class="table-style1">
+        <div id="container">
             <div id="question">
                 <h:panelGroup id="question_panel" >
                     <h:form id="question_form">
@@ -31,11 +31,11 @@
                         <h3 style="font-size: 5vw">
                             #{matchController.competitionMatch.score1}<br />
                         </h3>
-                        <h:commandButton class="btn1" action="#{matchController.correctAnswer1()}" value="Correct Answer">
+                        <h:commandButton class="btn1" action="#{matchController.correctAnswer1()}" value="#{bundle.correct_answer}">
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
                         </h:commandButton>
-                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer1()}" value="False Answer">
+                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer1()}" value="#{bundle.wrong_answer}">
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
                         </h:commandButton>
@@ -52,11 +52,11 @@
                         <h3 style="font-size: 5vw">
                             #{matchController.competitionMatch.score2}<br />
                         </h3>
-                        <h:commandButton class="btn1" action="#{matchController.correctAnswer2()}" value="Correct Answer">
+                        <h:commandButton class="btn1" action="#{matchController.correctAnswer2()}" value="#{bundle.correct_answer}">
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
                         </h:commandButton>
-                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer2()}" value="False Answer">
+                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer2()}" value="#{bundle.wrong_answer}">
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
                         </h:commandButton>
@@ -66,9 +66,10 @@
             <div id="btn">
                 <h:form>
                     <h:commandButton class="btn" value="Stop Match" action="#{matchController.stopMatch()}"/>
-                </h:form><br />
-                <h:link class="link" outcome="index" value="back"/>
+                </h:form>
                 <br />
+                <h:link class="link2" outcome="index" value="back"/>
+                <br /><br /><br />
             </div>
         </div>
     </h:body>
