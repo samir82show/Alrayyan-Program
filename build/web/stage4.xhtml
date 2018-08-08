@@ -7,11 +7,10 @@
         <title>Buzz System Competition</title>
         <h:outputStylesheet library="css" name = "Normalize.css" />
         <h:outputStylesheet library="css" name = "indexcss.css" />
-
     </h:head>
     <h:body>
 
-        <div id="container">
+        <div id="container" class="table-style1">
             <div id="question">
                 <h:panelGroup id="question_panel" >
                     <h:form id="question_form">
@@ -31,7 +30,6 @@
                         <h3 style="font-size: 5vw">
                             #{matchController.competitionMatch.score1}
                         </h3>
-<<<<<<< HEAD
                         <h:commandLink action="#{matchController.correctAnswer1()}">
                             <h:graphicImage class="btn3" value="resources/img/tick64.png" />
                             <f:ajax execute="@form" 
@@ -39,13 +37,6 @@
                         </h:commandLink>
                         <h:commandLink action="#{matchController.wrongAnswer1()}">
                             <h:graphicImage class="btn4" value="resources/img/delete64.png" />
-=======
-                        <h:commandButton class="btn1" action="#{matchController.correctAnswer1()}" value="#{bundle.correct_answer}">
-                            <f:ajax execute="@form" 
-                                    render="@form :question_panel :question_form"/>
-                        </h:commandButton>
-                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer1()}" value="#{bundle.wrong_answer}">
->>>>>>> origin/master
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
                         </h:commandLink>
@@ -62,7 +53,6 @@
                         <h3 style="font-size: 5vw">
                             #{matchController.competitionMatch.score2}
                         </h3>
-<<<<<<< HEAD
                         <h:commandLink action="#{matchController.correctAnswer2()}">
                             <h:graphicImage class="btn3" value="resources/img/tick64.png" />
                             <f:ajax execute="@form" 
@@ -70,13 +60,6 @@
                         </h:commandLink>
                         <h:commandLink action="#{matchController.wrongAnswer2()}">
                             <h:graphicImage class="btn4" value="resources/img/delete64.png" />
-=======
-                        <h:commandButton class="btn1" action="#{matchController.correctAnswer2()}" value="#{bundle.correct_answer}">
-                            <f:ajax execute="@form" 
-                                    render="@form :question_panel :question_form"/>
-                        </h:commandButton>
-                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer2()}" value="#{bundle.wrong_answer}">
->>>>>>> origin/master
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
                         </h:commandLink>
@@ -85,16 +68,9 @@
             </div>
             <div id="btn">
                 <h:form>
-<<<<<<< HEAD
                     <h:commandButton class="btn" value="إيقاف المباراة" action="#{matchController.stopMatch()}"/>
                 </h:form><br />
                 <h:link class="link" outcome="index" value="رجوع"/>
-=======
-                    <h:commandButton class="btn" value="Stop Match" action="#{matchController.stopMatch()}"/>
-                </h:form>
-                <br />
-                <h:link class="link2" outcome="index" value="back"/>
->>>>>>> origin/master
                 <br /><br /><br />
             </div>
         </div>
