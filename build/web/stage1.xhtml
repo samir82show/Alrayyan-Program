@@ -25,19 +25,21 @@
                 <h:panelGroup id="panel1">
                     <h:form>
                         <h3 style="font-size: 2vw">
-                            #{matchController.competitionMatch.school1Name}<br /><br />
+                            #{matchController.competitionMatch.school1Name}<br />
                         </h3>
                         <h3 style="font-size: 5vw">
-                            #{matchController.competitionMatch.score1}<br />
+                            #{matchController.competitionMatch.score1}
                         </h3>
-                        <h:commandButton class="btn1" action="#{matchController.correctAnswer1()}" value="صح">
+                        <h:commandLink action="#{matchController.correctAnswer1()}">
+                            <h:graphicImage class="btn3" value="resources/img/tick64.png" />
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
-                        </h:commandButton>
-                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer1()}" value="خطأ">
+                        </h:commandLink>
+                        <h:commandLink action="#{matchController.wrongAnswer1()}">
+                            <h:graphicImage class="btn4" value="resources/img/delete64.png" />
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
-                        </h:commandButton>
+                        </h:commandLink>
                     </h:form>
                 </h:panelGroup>
             </div>
@@ -46,19 +48,21 @@
                 <h:panelGroup id="panel2">
                     <h:form>
                         <h3 style="font-size: 2vw">
-                            #{matchController.competitionMatch.school2Name}<br /><br />
+                            #{matchController.competitionMatch.school2Name}<br />
                         </h3>
                         <h3 style="font-size: 5vw">
-                            #{matchController.competitionMatch.score2}<br />
+                            #{matchController.competitionMatch.score2}
                         </h3>
-                        <h:commandButton  class="btn1" action="#{matchController.correctAnswer2()}" value="صح">
+                        <h:commandLink  action="#{matchController.correctAnswer2()}">
+                            <h:graphicImage class="btn3" value="resources/img/tick64.png" />
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
-                        </h:commandButton>
-                        <h:commandButton class="btn2" action="#{matchController.wrongAnswer2()}" value="خطأ">
+                        </h:commandLink>
+                        <h:commandLink action="#{matchController.wrongAnswer2()}">
+                            <h:graphicImage class="btn4" value="resources/img/delete64.png" />
                             <f:ajax execute="@form" 
                                     render="@form :question_panel :question_form"/>
-                        </h:commandButton>
+                        </h:commandLink>
                     </h:form>
                 </h:panelGroup>
             </div>

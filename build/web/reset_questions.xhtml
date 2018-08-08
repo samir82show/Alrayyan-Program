@@ -1,20 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Team 1 score</title>
-        <meta http-equiv="refresh" content="2"/>
+        <title>Buzz System</title>
         <h:outputStylesheet library="css" name = "Normalize.css" />
         <h:outputStylesheet library="css" name = "indexcss.css" />
     </h:head>
     <h:body>
-        <h3 id="teamName">
-            #{matchController.competitionMatch.school1Name}
-        </h3>
-        <h1 id="teamScore">
-            #{matchController.competitionMatch.score1}
-        </h1>
+        <h:form styleClass="form-style13">
+            <h2><h:outputText value="Please reset questions"/></h2>
+        </h:form>
     </h:body>
 </html>
 

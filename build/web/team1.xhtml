@@ -3,14 +3,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Team 1 score</title>
         <meta http-equiv="refresh" content="2"/>
+        <h:outputStylesheet library="css" name = "Normalize.css" />
+        <h:outputStylesheet library="css" name = "indexcss.css" />
     </h:head>
     <h:body>
-        <h3 style="font-size: 5vw; text-align: center">
+        <h3 id="teamName">
             #{matchController.competitionMatch.school1Name}
         </h3>
-        <h1 style="font-size: 15vw; text-align: center">
+        <h1 id="teamScore">
             #{matchController.competitionMatch.score1}
         </h1>
     </h:body>
